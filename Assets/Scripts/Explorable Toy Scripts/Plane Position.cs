@@ -9,11 +9,13 @@ public class PlanePosition : MonoBehaviour
     private SpriteRenderer planeRenderer;
     public int timeInAir;
     public int timeUntilDestroy;
+    public Vector2 planePosition;
+    public bool planeHit;
     // Start is called before the first frame update
     void Start()
     {
         travelDirection = Random.Range(0, 2);   //randomly selects a 0 or 1 value (boolean expression)
-
+        planeHit = false;
         planeRenderer = GetComponent<SpriteRenderer>();
         if (travelDirection == 1 )
         {
@@ -27,11 +29,16 @@ public class PlanePosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 planePosition = transform.position;
+        planePosition = transform.position;
         planePosition.x += airSpeed;
 
 
         transform.position = planePosition;
         timeInAir++;
+
+        if (planeHit == true) {
+            Destroy(gameObject);
+            Debug.Log("Plane Destroyed");
+        }
     }
 }

@@ -6,7 +6,7 @@ public class TurretMovement : MonoBehaviour
 {
     public float turnSpeed;
     public float scopeMagnification;
-    public GameObject bulletPrefab;
+
    
 
     // Start is called before the first frame update

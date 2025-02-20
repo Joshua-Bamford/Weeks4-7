@@ -10,6 +10,7 @@ public class Bullets : MonoBehaviour
     public SpriteRenderer roundType;
     public Vector2 bulletSpawn;
     public Vector3 bulletDisperse;
+    public GameObject planePrefab;
    
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,26 @@ public class Bullets : MonoBehaviour
         Vector2 bulletDistance = transform.localScale;
         bulletDistance.x = Mathf.Lerp(1, 0, t);
         bulletDistance.y = Mathf.Lerp(1, 0, t);
+
+        Vector2 planeHitbox = planePrefab.transform.position;
+        
+
+        if(bulletDistance.x <= 0f)
+        {
+            if(planeHitbox.x <= (bulletDisperse.x + 5) && planeHitbox.x >= (bulletDisperse.x - 5) && planeHitbox.y <= (bulletDisperse.y + 5) && planeHitbox.y >= (bulletDisperse.y - 5))
+            {
+                PlanePosition plane = planePrefab.GetComponent<PlanePosition>();
+                plane.planeHit = true;
+                Debug.Log("Plane Hit");
+                Destroy(gameObject);
+
+            }
+
+            else
+            {
+             Destroy(gameObject);
+            }
+        }
 
        transform.localScale = bulletDistance;
 
