@@ -33,9 +33,5 @@ public class PlanePosition : MonoBehaviour
 
         transform.position = planePosition;
         timeInAir++;
-
-       // if (timeInAir == 500) {
-       // 
-       // }
     }
 }
