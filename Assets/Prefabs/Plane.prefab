@@ -100,4 +100,6 @@ MonoBehaviour:
   airSpeed: 0.02
   travelDirection: 0
   timeInAir: 0
-  timeUntilDestroy: 10
+  timeUntilDestroy: 20
+  planePosition: {x: 0, y: 0}
+  planeHit: 0

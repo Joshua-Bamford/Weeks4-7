@@ -6,8 +6,8 @@ public class TurretMovement : MonoBehaviour
 {
     public float turnSpeed;
     public float scopeMagnification;
-
-   
+    public GameObject planePrefab;
+    public int spawnTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,13 @@ public class TurretMovement : MonoBehaviour
         if (Input.GetKey("d")) //if the player moves their cursor to the left side of the screen
         {
             turretPosition.x -= turnSpeed;   //moves the main camera to the left by making turn speed a negative
+        }
+
+        spawnTimer++;
+        if(spawnTimer >= 250)
+        {
+            Instantiate(planePrefab);
+            spawnTimer = 0;
         }
 
         transform.position = turretPosition;

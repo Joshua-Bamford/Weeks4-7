@@ -14,6 +14,9 @@ public class PlanePosition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        planePosition = new Vector2 (Random.Range(-10f, 10f), Random.Range(6f, 0f));
+        transform.position = planePosition;
+
         travelDirection = Random.Range(0, 2);   //randomly selects a 0 or 1 value (boolean expression)
         planeHit = false;
         planeRenderer = GetComponent<SpriteRenderer>();
