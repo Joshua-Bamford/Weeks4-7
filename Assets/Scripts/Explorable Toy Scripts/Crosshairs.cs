@@ -5,7 +5,7 @@ using UnityEngine;
 public class Crosshairs : MonoBehaviour
 {
     public GameObject bulletPrefab;
-
+    public float scaleValue;
     // Update is called once per frame
     void Update()
     {
@@ -17,5 +17,15 @@ public class Crosshairs : MonoBehaviour
         {
             Instantiate(bulletPrefab);
         }
+        
+
+    }
+
+    public void ScopeSize(float scaleValue) 
+    {
+        Vector2 reticleSize = transform.localScale;
+        reticleSize.x = scaleValue;
+        reticleSize.y = scaleValue;
+        transform.localScale = reticleSize;
     }
 }
