@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class TurretMovement : MonoBehaviour
 {
-    public float turnSpeed;
-    public float scopeMagnification;
+    public float turnSpeed; //the rate of horizontal movement
     public GameObject planePrefab;
-    public int spawnTimer;
+    public int spawnTimer;  //counter to track interval until a new plane will spawn
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +35,12 @@ public class TurretMovement : MonoBehaviour
         }
 
         spawnTimer++;
-        if(spawnTimer >= 250)
+        if(spawnTimer >= 250)   //when a certain amount of time passes, a new plane will be spawned
         {
-            Instantiate(planePrefab);
+            Instantiate(planePrefab);   //only creates an instance of the prefab as all movement and despawning is controlled by the plane or bullet
             spawnTimer = 0;
         }
 
-        transform.position = turretPosition;
+        transform.position = turretPosition;    //updates the horizontal position
     }
 }
